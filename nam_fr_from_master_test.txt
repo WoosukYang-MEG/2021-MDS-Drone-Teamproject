@@ -1,0 +1,1 @@
+nam_fr_from_master_test.txt
