@@ -1,0 +1,16 @@
+#define error_range 0.000010
+
+unsigned char Arrive_Flag;
+
+void Arrive(unsigned char *Arrive_Flag);
+
+
+
+void Arrive(unsigned char *Arrive_Flag)
+{
+	if (posllh->lat < GccGps->lat + error_range && posllh->lat > GccGps->lat - error_range ) && (posllh->lon < GccGps->lon + error_range && posllh->lon > GccGps->lon - error_range )
+		Arrive_Flag = 1;
+	else
+		Arrive_Flag = 0;
+}
+
