@@ -1,0 +1,39 @@
+//target_height => gcs hegiht (cm), current_height => LPS22HH.baroAltFilt * 100 (cm)
+
+void(float* target_height, float* current_height, gainstruct* PID_IN_OUT)
+{
+
+float throttle_reference, throttle_error, throttle_error_sum, throttle_derivative_prev = 0.f;
+float throttle_i, throttle_p, throttle_derivative, throttle_pid;
+
+float throttle_rate_reference, throttle_rate_error, throttle_error_sum, throttle_rate_derivaive_prev = 0.f;
+float throttle_rate_i, throttle_rate_p, throttle_rate_derivative, throttle_rate_pid;
+/*----------------------------------------------------------------------------------------------------------*/
+throttle_reference = target_height;
+throttle_error = target_height - current_height;
+throttle_p = throttle_error * PID_IN_OUT.throttle_out_kp;
+
+throttle_error_sum = throttle_error_sum + throttle_error * 0 .001;
+throttle_i = throttle_error_sum * PID_IN_OUT.throttle_out_ki;
+
+throttle_derivative =  current_height - throttle_derivative_prev / 0.001;
+throttle_derivative_prev = -current_height * PID_IN_OUT.throttle_kd;
+
+throttle_pid = throttle_p + throttle_i + throttle_d;
+/*----------------------------------------------------------------------------------------------------------*/
+throttle_rate_reference = throttle_pid;
+throttle_rate_error = throttle_rate_reference - throttle_derivative
+throttle_rate_p = throttle_rate_error * PID_IN_OUT.throttle_in_kp;
+
+throttle_rate_error_sum = throttle_rate_error_sum + throttle_rate_error * 0.001;
+if(motor_arming_flag == 0 || iBus.LV < 1030) throttle_rate_error_sum = 0;
+throttle_rate_i = throttle_rate_error_sum * PID_IN_OUT.throttle_in_ki;
+
+throttle_rate_derivative = throttle_derivative - throttle_rate_derivative_prev / 0.001;
+throttle_rate_derivative_prev = throttle_derivative;
+throttle_rate_d = -throttle_rate_derivative * PID_IN_OUT.throttle_in_kd;
+
+throtle_rate_pid = throttle_rate_p + throttle_rate_i + throttle_rate_d;
+}
+
+//ccr -> iBus.LV-1000 -> (throttle_rate_pid);
