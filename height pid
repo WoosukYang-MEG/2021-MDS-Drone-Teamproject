@@ -31,7 +31,7 @@ if(motor_arming_flag == 0 || iBus.LV < 1030) throttle_rate_error_sum = 0;
 throttle_rate_i = throttle_rate_error_sum * PID_IN_OUT.throttle_in_ki;
 
 throttle_rate_derivative = throttle_derivative - throttle_rate_derivative_prev / 0.001;
-throttle_rate_derivative_prev = throttle_derivative;
+throttle_rate_derivative_prev = throttle_rate_derivative;
 throttle_rate_d = -throttle_rate_derivative * PID_IN_OUT.throttle_in_kd;
 
 throtle_rate_pid = throttle_rate_p + throttle_rate_i + throttle_rate_d;
