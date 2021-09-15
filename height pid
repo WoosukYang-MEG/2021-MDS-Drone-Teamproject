@@ -34,7 +34,9 @@ throttle_rate_derivative = throttle_derivative - throttle_rate_derivative_prev /
 throttle_rate_derivative_prev = throttle_rate_derivative;
 throttle_rate_d = -throttle_rate_derivative * PID_IN_OUT.throttle_in_kd;
 
-throtle_rate_pid = throttle_rate_p + throttle_rate_i + throttle_rate_d;
+throttle_rate_pid = throttle_rate_p + throttle_rate_i + throttle_rate_d;
+
+throttle_rate_pid > 600 ? throttle_rate_pid=600 : throttle_rate_pid < -400 ? throttle_rate_pid = -400 : throttle_rate_pid;
 }
 
 //ccr -> iBus.LV-1000 -> (throttle_rate_pid);
