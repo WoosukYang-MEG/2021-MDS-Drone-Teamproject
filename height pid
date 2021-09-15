@@ -17,7 +17,8 @@ throttle_error_sum = throttle_error_sum + throttle_error * 0 .001;
 throttle_i = throttle_error_sum * PID_IN_OUT.throttle_out_ki;
 
 throttle_derivative =  current_height - throttle_derivative_prev / 0.001;
-throttle_derivative_prev = -current_height * PID_IN_OUT.throttle_kd;
+throttle_derivative_prev = throttle_derivative;
+throttle_d = -current_height * PID_IN_OUT.throttle_kd;
 
 throttle_pid = throttle_p + throttle_i + throttle_d;
 /*----------------------------------------------------------------------------------------------------------*/
