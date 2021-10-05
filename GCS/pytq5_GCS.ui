@@ -6,127 +6,234 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>807</width>
-    <height>678</height>
+    <width>502</width>
+    <height>579</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>GCS Station</string>
   </property>
-  <widget class="QWidget" name="gridLayoutWidget">
+  <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>661</width>
-     <height>106</height>
+     <x>0</x>
+     <y>0</y>
+     <width>501</width>
+     <height>571</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_Cmd2GUI">
-      <property name="text">
-       <string>Serial Port to GUI</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QComboBox" name="combobox_GUI_serialPort"/>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_Drone2Cmd">
-      <property name="text">
-       <string>Serial Port to Drone</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QComboBox" name="combobox_Drone_serialPort">
-      <property name="contextMenuPolicy">
-       <enum>Qt::NoContextMenu</enum>
-      </property>
-      <property name="editable">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QPushButton" name="button_Connect2Drone">
-      <property name="text">
-       <string>Connect</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="button_Connect2GUI">
-      <property name="text">
-       <string>Connect</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="gridLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>210</y>
-     <width>661</width>
-     <height>91</height>
-    </rect>
+   <property name="currentIndex">
+    <number>0</number>
    </property>
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="2" column="2">
-     <widget class="QPushButton" name="CameraOffButton">
-      <property name="text">
-       <string>Send</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="lineEdit_Longitude"/>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLineEdit" name="lineEdit_Latitude"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_Latitude">
-      <property name="text">
-       <string>Latitude</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="label_Longitude">
-      <property name="text">
-       <string>Longitude</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="button_SerialPortRefresh">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>30</y>
-     <width>101</width>
-     <height>46</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Refresh</string>
-   </property>
-  </widget>
-  <widget class="QTextBrowser" name="textBrowser">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>310</y>
-     <width>661</width>
-     <height>281</height>
-    </rect>
-   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Tab 1</string>
+    </attribute>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>471</width>
+       <height>106</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_Cmd2GUI">
+        <property name="text">
+         <string>Serial Port to GUI</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="combobox_GUI_serialPort"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_Drone2Cmd">
+        <property name="text">
+         <string>Serial Port to Drone</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="combobox_Drone_serialPort">
+        <property name="contextMenuPolicy">
+         <enum>Qt::NoContextMenu</enum>
+        </property>
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="button_Connect2Drone">
+        <property name="text">
+         <string>Connect</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="button_Connect2GUI">
+        <property name="text">
+         <string>Connect</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_serialPort">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>160</y>
+       <width>471</width>
+       <height>131</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_SerialPortRescan">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>rescan</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Tab 2</string>
+    </attribute>
+    <widget class="QWidget" name="gridLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>481</width>
+       <height>54</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="2" column="0">
+       <widget class="QLineEdit" name="lineEdit_Latitude">
+        <property name="text">
+         <string>37.4710434</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="label_Longitude">
+        <property name="text">
+         <string>Longitude</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_Latitude">
+        <property name="text">
+         <string>Latitude</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_Longitude">
+        <property name="text">
+         <string>127.3844147</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="button_SendCommand">
+        <property name="text">
+         <string>Send</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLineEdit" name="lineEdit_Height">
+        <property name="text">
+         <string>30</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_Height">
+        <property name="text">
+         <string>Height(cm)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="button_Drop">
+        <property name="text">
+         <string>Drop</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>481</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="frame_FPV_camera">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_command">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>390</y>
+       <width>481</width>
+       <height>151</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>481</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="button_CameraOn">
+        <property name="text">
+         <string>Camera On</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="button_CameraOff">
+        <property name="text">
+         <string>Camera Off</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>
