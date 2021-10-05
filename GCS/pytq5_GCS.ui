@@ -10,8 +10,14 @@
     <height>608</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>505</width>
+    <height>608</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>GCS Station</string>
+   <string>GCS Station - by 고양이부엌크</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
