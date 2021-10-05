@@ -1,0 +1,86 @@
+
+if{ (arrive != 1)
+
+	Double_Roll_Pitch_PID_Calculation(&pitch, (iBus.RV - 1500)* 0.1f, BNO080_Pitch, ICM20602.gyro_x);
+	Double_Roll_Pitch_PID_Calculation(&roll, (iBus.RH - 1500)* 0.1f, BNO080_Roll, ICM20602.gyro_y);
+
+
+	ccr1 = 10500 + 500 +(iBus.LV-1000) * 10 
+			- pitch.in.pid_result 
+			+ roll.in.pid_result 
+			- yaw_rate.pid_result;
+
+	ccr2 = 10500 + 500 +(iBus.LV-1000) * 10 
+			+ pitch.in.pid_result 
+			+ roll.in.pid_result 
+			+ yaw_rate.pid_result;
+	
+	ccr3 = 10500 + 500 +(iBus.LV-1000) * 10 
+			+ pitch.in.pid_result 
+			- roll.in.pid_result 
+			+ yaw_rate.pid_result;
+	
+	ccr4 = 10500 + 500 +(iBus.LV-1000) * 10 
+			- pitch.in.pid_result 
+			- roll.in.pid_result 
+			- yaw_rate.pid_result;
+
+	
+
+	
+	ccr_throttle_state = 10500 + 500 + (iBus.Lv-1000) * 10	
+	 
+}
+
+/* (1)
+5ms x 2 =1회 
+
+10ms = 1회
+
+1000ms = 100회 // 1초에 -100 
+
+  
+10초 = -1000
+*/
+
+/* (2)
+10ms x 2 = 1회
+
+20ms = 1회
+
+1000ms = 50회 // 1초에 - 50
+
+10초 =500 
+ */
+
+cnt 
+
+else{ (arrive == 1) 	
+//
+	Double_Roll_Pitch_PID_Calculation(&pitch, (1500 - 1500)* 0.1f, BNO080_Pitch, ICM20602.gyro_x);
+	Double_Roll_Pitch_PID_Calculation(&roll, (1500- 1500)* 0.1f, BNO080_Roll, ICM20602.gyro_y);
+	
+	ccr1 = ccr_throttle_state + pitch.in.pid_result - roll.in.pid_result + yaw_rate.pid_result;
+	ccr2 = ccr_throttle_state + pitch.in.pid_result - roll.in.pid_result + yaw_rate.pid_result;
+	ccr3 = ccr_throttle_state + pitch.in.pid_result - roll.in.pid_result + yaw_rate.pid_result;
+	ccr4 = ccr_throttle_state + pitch.in.pid_result - roll.in.pid_result + yaw_rate.pid_result;
+		
+	if( (cnt % 2) == 0 ){
+		ccr1 = (ccr_throttle_state + pitch.in.pid_result - roll.in.pid_result + yaw_rate.pid_result)--;
+		ccr2 = (ccr_throttle_state + pitch.in.pid_result - roll.in.pid_result + yaw_rate.pid_result)--;
+		ccr3 = (ccr_throttle_state + pitch.in.pid_result - roll.in.pid_result + yaw_rate.pid_result)--;
+		ccr4 = (ccr_throttle_state + pitch.in.pid_result - roll.in.pid_result + yaw_rate.pid_result)--;
+		
+		if(ccr1 < 11000)
+			ccr1 = 11000;
+		
+		if(ccr2 < 11000)
+			ccr2 = 11000;
+		
+		if(ccr3 < 11000)
+			ccr3 = 11000;
+		
+		if(ccr4 < 11000)
+			ccr4 = 11000;
+	}
+}
