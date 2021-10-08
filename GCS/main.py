@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUiType
 from PyQt5 import QtGui
 from PyQt5 import QtWidgets
+from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QPixmap
 
 form_class1 = loadUiType("pytq5_GCS.ui")[0]
 
@@ -17,6 +19,13 @@ class Main_GCS(QMainWindow, form_class1):
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
         self.setupUi(self)
+
+        self.setWindowIcon(QIcon('image/icon.jpg'))
+        self.pixmap = QPixmap('image/image.jpg')
+        self.label_image.setPixmap(self.pixmap)
+        # self.label_image.setContentsMargins(10, 10, 10, 10)
+        # self.label_image.resize(self.pixmap.width(), self.pixmap.height())
+
 
         self.is_there_serialPort2Drone = 0
         self.is_there_serialPort2GUI = 0

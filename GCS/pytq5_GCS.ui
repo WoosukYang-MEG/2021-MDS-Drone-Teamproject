@@ -6,12 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>502</width>
-    <height>579</height>
+    <width>505</width>
+    <height>608</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>505</width>
+    <height>608</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>GCS Station</string>
+   <string>GCS Station - by 고양이부엌크</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
@@ -34,8 +40,8 @@
       <rect>
        <x>10</x>
        <y>40</y>
-       <width>471</width>
-       <height>106</height>
+       <width>481</width>
+       <height>54</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
@@ -86,9 +92,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>160</y>
-       <width>471</width>
-       <height>131</height>
+       <y>100</y>
+       <width>481</width>
+       <height>191</height>
       </rect>
      </property>
     </widget>
@@ -103,6 +109,19 @@
      </property>
      <property name="text">
       <string>rescan</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_image">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>300</y>
+       <width>481</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -234,6 +253,22 @@
      </layout>
     </widget>
    </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>570</y>
+     <width>351</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 87 11pt &quot;Arial&quot;;</string>
+   </property>
+   <property name="text">
+    <string>고양이부엌크루 고봉민 남윤엽 양우석 유시승 장철우</string>
+   </property>
   </widget>
  </widget>
  <resources/>
